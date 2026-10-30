@@ -1,0 +1,12 @@
+**/node_modules
+**/dist
+**/tmp
+**/.DS_Store
+.git
+.gitignore
+*.md
+backend/test
+Dockerfile
+compose.yaml
+.dockerignore
+biome.json

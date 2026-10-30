@@ -1,0 +1,9 @@
+{
+  "name": "@app/shared",
+  "private": true,
+  "type": "module",
+  "types": "./api-types.ts",
+  "exports": {
+    ".": "./api-types.ts"
+  }
+}

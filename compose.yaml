@@ -1,0 +1,21 @@
+services:
+  downloader:
+    build: .
+    image: video-downloader:local
+    ports:
+      # ホストのループバックのみに公開する（外部からはアクセス不可）
+      - "127.0.0.1:3000:3000"
+    environment:
+      # ホスト側のポートを変える場合は Host 許可リストも合わせて変更する
+      ALLOWED_HOSTS: "localhost:3000,127.0.0.1:3000"
+      FILE_RETENTION_SEC: "1800"
+      MAX_FILESIZE_MB: "4096"
+      DOWNLOAD_TIMEOUT_SEC: "3600"
+    restart: "no"
+    init: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 256
+    stop_grace_period: 20s
