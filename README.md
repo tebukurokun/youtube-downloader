@@ -1,13 +1,23 @@
 # Video Downloader
 
 自分専用のローカル Web アプリです。ダウンロードする権利・許可がある YouTube 上の単一動画を、
-広告や外部サイトを使わずに保存します。Docker Compose だけで動き、ホストに Node.js / Python /
-yt-dlp / FFmpeg をインストールする必要はありません。
+広告や外部サイトを使わずに保存します。動画の取得には [yt-dlp](https://github.com/yt-dlp/yt-dlp)
+を使っています。Docker Compose だけで動き、ホストに Node.js / Python / yt-dlp / FFmpeg を
+インストールする必要はありません。
 
 > **利用条件:** 著作権者の許可がある動画、自分でアップロードした動画など、ダウンロードする権利と
 > 利用条件を確認できる動画にのみ使ってください。YouTube の利用規約は、許可がある場合を除き
 > ダウンロードを制限しています。個人利用・ローカル実行であっても規約上の制限はなくなりません。
 > DRM やアクセス制御の回避、Cookie・認証情報の取り込みには対応していません。
+
+## 前提条件
+
+- Docker Engine と Docker Compose v2（`docker compose` コマンド）が使えること
+  - macOS / Windows: [Docker Desktop](https://docs.docker.com/desktop/)
+  - Linux: [Docker Engine](https://docs.docker.com/engine/install/) と [Compose プラグイン](https://docs.docker.com/compose/install/linux/)
+- Docker が起動していること（`docker info` で確認できます）
+- イメージのビルドと YouTube へのアクセスのため、インターネットに接続できること
+- ディスクの空き容量: イメージ約 900 MB ＋ ダウンロードする動画の 2 倍程度 ＋ 1 GB
 
 ## 使い方
 
